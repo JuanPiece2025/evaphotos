@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de EvaFotógrafo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0e3; /* Un beige suave */
+            color: #5e5e5e; /* Grisáceo */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #e9a7a7; /* Rosa pálido */
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .blog-container {
+            padding: 30px 20px;
+            flex-grow: 1; /* Permite que el contenido del blog crezca */
+        }
+        .blog-title {
+            color: #d68989; /* Rosa más intenso */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .pinterest-embed {
+            /* Contenedor para el widget de Elfsight */
+            text-align: center; /* O ajusta según el diseño de Elfsight */
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .back-home {
+            display: inline-block;
+            background-color: #a8dadc; /* Azul verdoso suave */
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .back-home:hover {
+            background-color: #457b9d; /* Azul más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog de EvaFotógrafo</h1>
+    </header>
+
+    <div class="blog-container">
+        <a href="index.html" class="back-home">Volver a la página de inicio</a>
+        <h2 class="blog-title">Mi Galería de Fotos</h2>
+        <div class="pinterest-embed">
+            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+            <div class="elfsight-app-6a75523f-4a0d-42f9-93a5-90abb85ddb8a" data-elfsight-app-lazy></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 EvaFotógrafo - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
