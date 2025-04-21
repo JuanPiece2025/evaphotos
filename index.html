@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvaFotógrafo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f0e3; /* Un beige suave */
+            color: #5e5e5e; /* Grisáceo */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #e9a7a7; /* Rosa pálido */
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #fddede; /* Borde rosa más claro */
+        }
+        .intro {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .intro h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #d68989; /* Rosa más intenso */
+        }
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .button-blog {
+            display: inline-block;
+            background-color: #a8dadc; /* Azul verdoso suave */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .button-blog:hover {
+            background-color: #457b9d; /* Azul más oscuro */
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            font-size: 1.5em;
+            color: #d68989; /* Rosa más intenso */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #e9a7a7; /* Rosa pálido */
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Empuja el footer hacia abajo */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ruta/a/camara-icono.png" alt="Logo EvaFotógrafo" class="profile-image">
+        <h1>EvaFotógrafo</h1>
+    </header>
+
+    <section class="intro">
+        <p>Bienvenido al espacio donde la luz y la perspectiva dan vida a historias visuales.</p>
+        <p>Explora mi mundo a través de la lente y descubre la belleza en cada detalle.</p>
+        <a href="blog.html" class="button-blog">Ir al Blog</a>
+    </section>
+
+    <section class="social-links">
+        <a href="https://www.instagram.com/tu_usuario_de_instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/tu_canal_de_telegram" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://ru.pinterest.com/evaphotographer/" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+    </section>
+
+    <footer>
+        <p>© 2025 EvaFotógrafo - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
