@@ -67,13 +67,18 @@
             margin-top: 30px;
         }
         .social-links a {
-            display: inline-block;
+            display: inline-flex; /* Usamos flex para centrar el icono dentro del círculo */
+            justify-content: center;
+            align-items: center;
+            width: 2.2em; /* Ajusta el tamaño del círculo */
+            height: 2.2em; /* Ajusta el tamaño del círculo */
+            border-radius: 50%; /* Para hacerlo circular */
+            background-color: rgba(255, 255, 255, 0.15); /* Fondo blanco muy transparente */
             margin: 0 15px;
             font-size: 1.7em; /* Aumento del tamaño de los iconos */
             color: #c06c84; /* Un tono de rosa más oscuro */
             text-decoration: none;
             transition: color 0.3s ease;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave a los iconos */
         }
         .social-links a:hover {
             color: #e9a7a7; /* Rosa pálido */
