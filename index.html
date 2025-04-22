@@ -13,16 +13,17 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            color: #5e5e5e; /* Grisáceo */
+            color: #333; /* Gris más oscuro para mayor contraste */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         header {
-            background-color: #e9a7a7; /* Rosa pálido */
+            background-color: rgba(233, 167, 167, 0.7); /* Rosa pálido con 70% de opacidad */
             color: #fff;
             padding: 40px 20px;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra suave al texto del header */
         }
         .profile-image {
             width: 120px;
@@ -37,14 +38,16 @@
             padding: 30px 20px;
         }
         .intro h1 {
-            font-size: 2.5em;
+            font-size: 2.7em; /* Aumento ligero del tamaño */
             margin-bottom: 10px;
             color: #d68989; /* Rosa más intenso */
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave al título */
         }
         .intro p {
-            font-size: 1.1em;
+            font-size: 1.15em; /* Aumento ligero del tamaño */
             line-height: 1.6;
             margin-bottom: 20px;
+            color: #444; /* Gris más oscuro para mayor contraste */
         }
         .button-blog {
             display: inline-block;
@@ -66,10 +69,11 @@
         .social-links a {
             display: inline-block;
             margin: 0 15px;
-            font-size: 1.5em;
-            color: #d68989; /* Rosa más intenso */
+            font-size: 1.7em; /* Aumento del tamaño de los iconos */
+            color: #c06c84; /* Un tono de rosa más oscuro */
             text-decoration: none;
             transition: color 0.3s ease;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave a los iconos */
         }
         .social-links a:hover {
             color: #e9a7a7; /* Rosa pálido */
@@ -80,6 +84,7 @@
             text-align: center;
             padding: 20px;
             margin-top: auto; /* Empuja el footer hacia abajo */
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Sombra suave al texto del footer */
         }
     </style>
 </head>
