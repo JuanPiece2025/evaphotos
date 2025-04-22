@@ -9,7 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/fondo.jpeg'); /* Aquí irá la ruta de tu imagen */
+            background-image: url('https://raw.githubusercontent.com/JuanPiece2025/evaphotos/refs/heads/main/images/fondo.jpeg'); /* Aquí irá la ruta de tu imagen */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -67,7 +67,7 @@
             margin-top: 30px;
         }
         .social-links a {
-            display: inline-flex; /* Usamos flex para centrar el icono dentro del círculo */
+            display: inline-flex; /* Usamos flex para centrar la imagen dentro del círculo */
             justify-content: center;
             align-items: center;
             width: 2.2em; /* Ajusta el tamaño del círculo */
@@ -75,21 +75,15 @@
             border-radius: 50%; /* Para hacerlo circular */
             background-color: rgba(255, 255, 255, 0.15); /* Fondo blanco muy transparente */
             margin: 0 15px;
-            font-size: 1.7em; /* Aumento del tamaño de los iconos */
-            color: #c06c84; /* Un tono de rosa más oscuro */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease; /* Transición para el hover */
         }
         .social-links a:hover {
-            color: #e9a7a7; /* Rosa pálido */
+            opacity: 0.8; /* Reduce la opacidad al hacer hover */
         }
-        footer {
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto; /* Empuja el footer hacia abajo */
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Sombra suave al texto del footer */
+        .social-links a img {
+            max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+            max-height: 100%;
         }
     </style>
 </head>
@@ -106,15 +100,20 @@
     </section>
 
     <section class="social-links">
-        <a href="https://www.instagram.com/chit.eve/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/loveandglory" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-        <a href="https://ru.pinterest.com/evaphotographer/" target="_blank" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.instagram.com/chit.eve/" target="_blank" title="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/250px-Instagram_logo_2022.svg.png" alt="Instagram">
+        </a>
+        <a href="https://t.me/loveandglory" target="_blank" title="Telegram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/800px-Telegram_2019_Logo.svg.png" alt="Telegram">
+        </a>
+        <a href="https://ru.pinterest.com/evaphotographer/" target="_blank" title="Pinterest">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-pinterest-64-432533.png?f=webp" alt="Pinterest">
+        </a>
     </section>
 
     <footer>
         <p>© 2025 EvaFotógrafo - Todos los derechos reservados</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-</body>
+    </body>
 </html>
