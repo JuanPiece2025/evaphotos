@@ -9,20 +9,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f0e3; /* Un beige suave */
-            color: #5e5e5e; /* Grisáceo */
+            background-image: url('../images/fondo.jpeg'); /* Ajusta la ruta si es necesario */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: #333; /* Gris más oscuro para mayor contraste */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         header {
-            background-color: #e9a7a7; /* Rosa pálido */
+            background-color: rgba(233, 167, 167, 0.7); /* Rosa pálido con 70% de opacidad */
             color: #fff;
             padding: 40px 20px;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra suave al texto del header */
         }
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.7em;
             margin-bottom: 10px;
         }
         .blog-container {
@@ -33,6 +37,7 @@
             color: #d68989; /* Rosa más intenso */
             margin-bottom: 20px;
             text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave al título */
         }
         .pinterest-embed {
             /* Contenedor para el widget de Elfsight */
@@ -44,6 +49,7 @@
             text-align: center;
             padding: 20px;
             margin-top: 30px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Sombra suave al texto del footer */
         }
         .back-home {
             display: inline-block;
@@ -55,6 +61,7 @@
             font-weight: bold;
             margin-bottom: 20px;
             transition: background-color 0.3s ease;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave al botón */
         }
         .back-home:hover {
             background-color: #457b9d; /* Azul más oscuro */
