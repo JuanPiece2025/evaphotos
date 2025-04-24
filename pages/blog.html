@@ -40,9 +40,102 @@
             text-align: center;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Sombra suave al título */
         }
-        .pinterest-embed {
-            /* Contenedor para el widget de Elfsight */
-            text-align: center; /* O ajusta según el diseño de Elfsight */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px; /* Espacio debajo de la galería */
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer; /* Indica que el elemento es clickeable */
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%; /* La altura también ocupa el 100% del contenedor */
+            object-fit: cover; /* Cubre el contenedor manteniendo la proporción, recorta si es necesario */
+        }
+        /* Estilos para la vista de pantalla completa */
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            flex-direction: column; /* Alineamos los elementos verticalmente */
+        }
+        .fullscreen-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fullscreen-image-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 85%; /* Ajustamos la altura máxima del contenedor de la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px; /* Añadimos un espacio para el botón */
+        }
+        .fullscreen-image {
+            display: block;
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .fullscreen-controls {
+            /* Hemos movido la lógica de posicionamiento al contenedor principal */
+            display: flex;
+            gap: 20px;
+        }
+        .fullscreen-controls button {
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .fullscreen-controls button:hover {
+            background-color: #eee;
+        }
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            border: none;
+            background: none;
+            outline: none;
+        }
+        .close-fullscreen:hover {
+            opacity: 1;
         }
         footer {
             background-color: #222;
@@ -67,6 +160,57 @@
         .back-home:hover {
             background-color: #457b9d; /* Azul más oscuro */
         }
+
+        /* Estilos para pantallas más pequeñas (teléfonos) */
+        @media (max-width: 600px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .fullscreen-image-container {
+                max-width: 95%;
+                max-height: 80%; /* Ajustamos para móviles */
+                margin-bottom: 50px; /* Espacio para el botón en móviles */
+            }
+
+            .fullscreen-image {
+                object-fit: cover;
+            }
+
+            .fullscreen-controls {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        /* Estilos para pantallas más grandes (PC) */
+        @media (min-width: 601px) {
+            .fullscreen-overlay {
+                align-items: center; /* Mantenemos la alineación vertical centrada */
+                justify-content: center; /* Cambiamos la alineación principal al centro */
+                flex-direction: column; /* Aseguramos la dirección vertical */
+            }
+
+            .fullscreen-image-container {
+                max-height: 85%;
+                margin-bottom: 40px; /* Espacio para el botón en PC */
+            }
+
+            .fullscreen-image {
+                max-height: 80vh;
+                object-fit: contain;
+            }
+
+            .fullscreen-controls {
+                position: static; /* El botón fluye con el contenido */
+                transform: none;
+                left: auto;
+                bottom: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -77,13 +221,118 @@
     <div class="blog-container">
         <a href="https://eva.publicvm.com" class="back-home">Volver a la página de inicio</a>
         <h2 class="blog-title">Mi Galería de Fotos</h2>
-        <div class="pinterest-embed">
-            <script src="https://static.elfsight.com/platform/platform.js" async></script>
-            <div class="elfsight-app-6a75523f-4a0d-42f9-93a5-90abb85ddb8a" data-elfsight-app-lazy></div>
+        <div class="gallery-container">
+            <div class="gallery-item" onclick="openFullscreen('images/imagen1.jpg')">
+                <img src="images/imagen1.jpg" alt="Imagen 1">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen2.jpg')">
+                <img src="images/imagen2.jpg" alt="Imagen 2">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen3.jpg')">
+                <img src="images/imagen3.jpg" alt="Imagen 3">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen4.jpg')">
+                <img src="images/imagen4.jpg" alt="Imagen 4">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen5.jpg')">
+                <img src="images/imagen5.jpg" alt="Imagen 5">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen6.jpg')">
+                <img src="images/imagen6.jpg" alt="Imagen 6">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen7.jpg')">
+                <img src="images/imagen7.jpg" alt="Imagen 7">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen8.jpg')">
+                <img src="images/imagen8.jpg" alt="Imagen 8">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen9.jpg')">
+                <img src="images/imagen9.jpg" alt="Imagen 9">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen10.jpg')">
+                <img src="images/imagen10.jpg" alt="Imagen 10">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen11.jpg')">
+                <img src="images/imagen11.jpg" alt="Imagen 11">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen12.jpg')">
+                <img src="images/imagen12.jpg" alt="Imagen 12">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen13.jpg')">
+                <img src="images/imagen13.jpg" alt="Imagen 13">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen14.jpg')">
+                <img src="images/imagen14.jpg" alt="Imagen 14">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen15.jpg')">
+                <img src="images/imagen15.jpg" alt="Imagen 15">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen16.jpg')">
+                <img src="images/imagen16.jpg" alt="Imagen 16">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen17.jpg')">
+                <img src="images/imagen17.jpg" alt="Imagen 17">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen18.jpg')">
+                <img src="images/imagen18.jpg" alt="Imagen 18">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen19.jpg')">
+                <img src="images/imagen19.jpg" alt="Imagen 19">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen20.jpg')">
+                <img src="images/imagen20.jpg" alt="Imagen 20">
+            </div>
+            <div class="gallery-item" onclick="openFullscreen('images/imagen21.jpg')">
+                <img src="images/imagen21.jpg" alt="Imagen 21">
+            </div>
+        </div>
+    </div>
+
+    <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <button class="close-fullscreen" onclick="closeFullscreen()">&times;</button>
+        <div class="fullscreen-image-container">
+            <img src="" alt="Imagen en pantalla completa" class="fullscreen-image" id="fullscreenImage">
+        </div>
+        <div class="fullscreen-controls">
+            <button onclick="downloadImage()">Descargar</button>
+        </div>
     </div>
 
     <footer>
         <p>© 2025 EvaFotógrafo - Todos los derechos reservados</p>
     </footer>
+
+    <script>
+        function openFullscreen(imageSrc) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const fullscreenImg = document.getElementById('fullscreenImage');
+            fullscreenImg.src = imageSrc;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evitar el scroll del fondo
+            currentFullscreenImage = imageSrc; // Guardar la imagen actual para la función de descarga
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restaurar el scroll del fondo
+            currentFullscreenImage = null;
+        }
+
+        let currentFullscreenImage = null;
+
+        function downloadImage() {
+            if (currentFullscreenImage) {
+                const link = document.createElement('a');
+                link.href = currentFullscreenImage;
+                link.download = currentFullscreenImage.substring(currentFullscreenImage.lastIndexOf('/') + 1);
+                document.body.appendChild(link); // ¡Añadir al DOM!
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                alert('No hay imagen para descargar.');
+            }
+        }
+    </script>
 </body>
 </html>
